@@ -1,0 +1,34 @@
+import random
+digits = '0123456789'
+lowercase_letters = 'abcdefghijklmnopqrstuvwxyz'
+uppercase_letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+punctuation = '!#$%&*+-=?@^'
+neo = 'il1LoO0'
+chars = ''
+
+col = int(input('Сколько паролей вам будет нужно?: '))
+lenght = int(input('Какая длина пароля?: '))
+dig = input('Включать ли цифры?: ')
+alp = input('Включать ли строчные буквы?: ')
+ALP = input('Включать ли прописные буквы?: ')
+sim = input('Включать ли символы?: ')
+nesim = input('Исключать ли неоднозначные символы?: ')
+if dig == 'да':
+    chars += digits
+if alp == 'да':
+    chars += lowercase_letters
+if ALP == 'да':
+    chars += uppercase_letters
+if sim == 'да':
+    chars += punctuation
+if sim == 'нет':
+    chars += neo
+
+def generate_password(length,chars):
+    password = ' '
+    for _ in range(length):
+        password += random.choice(chars)
+    return password
+
+for _ in range(col):
+    print(generate_password(lenght,chars))
